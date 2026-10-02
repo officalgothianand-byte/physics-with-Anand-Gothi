@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Physics Chapter</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    background:#f5f8fc;
+
+    color:#172033;
+
+}
+
+
+/* HEADER */
+
+header{
+
+    background:
+        linear-gradient(
+            135deg,
+            #081525,
+            #12324d
+        );
+
+    color:white;
+
+    padding:35px 5%;
+
+}
+
+.header{
+
+    max-width:1000px;
+
+    margin:auto;
+
+}
+
+header h1{
+
+    font-size:
+        clamp(30px,5vw,48px);
+
+    margin-bottom:8px;
+
+}
+
+header h1 span{
+
+    color:#32d1f5;
+
+}
+
+header p{
+
+    color:#c5d2df;
+
+}
+
+
+/* MAIN */
+
+.container{
+
+    width:92%;
+
+    max-width:1000px;
+
+    margin:auto;
+
+}
+
+main{
+
+    padding:45px 0 70px;
+
+}
+
+
+/* CONTENT */
+
+.content{
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:35px;
+
+    border:1px solid #e4e7ec;
+
+    box-shadow:
+        0 8px 25px
+        rgba(16,24,40,.06);
+
+}
+
+.content h2{
+
+    font-size:28px;
+
+    margin-bottom:15px;
+
+}
+
+.content p{
+
+    color:#667085;
+
+    margin-bottom:20px;
+
+}
+
+.placeholder{
+
+    padding:25px;
+
+    border-radius:10px;
+
+    background:#f5f8fc;
+
+    border-left:4px solid #32d1f5;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:25px;
+
+}
+
+.button{
+
+    padding:10px 16px;
+
+    border-radius:7px;
+
+    background:#102a43;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.button.back{
+
+    background:#32d1f5;
+
+    color:#07131e;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .content{
+
+        padding:22px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="header">
+
+    <h1 id="title">
+        Physics Chapter
+    </h1>
+
+    <p id="subtitle">
+        Physics with Anand Gothi
+    </p>
+
+</div>
+
+</header>
+
+
+
+<main>
+
+<div class="container">
+
+<div class="content">
+
+
+    <h2 id="chapterTitle">
+        Chapter
+    </h2>
+
+
+    <p id="description">
+        Chapter content will appear here.
+    </p>
+
+
+    <div class="placeholder">
+
+        <strong>
+            Chapter material
+        </strong>
+
+        <br><br>
+
+        This page is ready for your
+        notes, formulas, questions,
+        PYQs, MCQs and other study material.
+
+    </div>
+
+
+    <div class="buttons">
+
+        <a
+            href="javascript:history.back()"
+            class="button back"
+        >
+            ← Back to Chapters
+        </a>
+
+        <a
+            href="index.html"
+            class="button"
+        >
+            Home
+        </a>
+
+    </div>
+
+
+</div>
+
+</div>
+
+</main>
+
+
+
+<script>
+
+
+/* =========================
+   CHAPTER DATA
+========================= */
+
+const class11 = [
+
+"Units and Measurements",
+
+"Motion in a Straight Line",
+
+"Motion in a Plane",
+
+"Laws of Motion",
+
+"Work, Energy and Power",
+
+"System of Particles and Rotational Motion",
+
+"Gravitation",
+
+"Mechanical Properties of Solids",
+
+"Mechanical Properties of Fluids",
+
+"Thermal Properties of Matter",
+
+"Thermodynamics",
+
+"Kinetic Theory",
+
+"Oscillations",
+
+"Waves"
+
+];
+
+
+const class12 = [
+
+"Electric Charges and Fields",
+
+"Electrostatic Potential and Capacitance",
+
+"Current Electricity",
+
+"Moving Charges and Magnetism",
+
+"Magnetism and Matter",
+
+"Electromagnetic Induction",
+
+"Alternating Current",
+
+"Electromagnetic Waves",
+
+"Ray Optics and Optical Instruments",
+
+"Wave Optics",
+
+"Dual Nature of Radiation and Matter",
+
+"Atoms",
+
+"Nuclei",
+
+"Semiconductor Electronics"
+
+];
+
+
+/* =========================
+   READ URL
+========================= */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const selectedClass =
+    params.get("class") || "12";
+
+
+const selectedCategory =
+    params.get("category") || "notes";
+
+
+const selectedChapter =
+    parseInt(
+        params.get("chapter") || "1"
+    );
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+const categoryNames = {
+
+    notes:"Notes",
+
+    "mp-board":"MP Board",
+
+    cbse:"CBSE",
+
+    neet:"NEET",
+
+    jee:"JEE"
+
+};
+
+
+const category =
+    categoryNames[selectedCategory]
+    || "Notes";
+
+
+/* =========================
+   CHAPTER
+========================= */
+
+const chapters =
+    selectedClass === "11"
+    ? class11
+    : class12;
+
+
+const chapterName =
+    chapters[selectedChapter - 1]
+    || "Physics";
+
+
+const number =
+    String(selectedChapter)
+        .padStart(2,"0");
+
+
+/* =========================
+   DISPLAY
+========================= */
+
+document.title =
+    `Class ${selectedClass} -
+     Chapter ${number} -
+     ${category}`;
+
+
+document.getElementById("title").innerHTML =
+
+    `Class ${selectedClass}
+     <span>${category}</span>`;
+
+
+document.getElementById("chapterTitle").textContent =
+
+    `Chapter ${number}:
+     ${chapterName}`;
+
+
+document.getElementById("description").textContent =
+
+    `${category} material for
+     Class ${selectedClass} Physics.`;
+
+</script>
+
+
+</body>
+
+</html>
