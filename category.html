@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Physics Chapters</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#f5f8fc;
+
+    color:#172033;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header{
+
+    background:linear-gradient(
+        135deg,
+        #081525,
+        #12324d
+    );
+
+    color:white;
+
+    padding:30px 5%;
+
+}
+
+.header-inner{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+.header h1{
+
+    font-size:
+        clamp(28px,4vw,45px);
+
+    margin-bottom:5px;
+
+}
+
+.header h1 span{
+
+    color:#32d1f5;
+
+}
+
+.header p{
+
+    color:#c5d2df;
+
+}
+
+.back{
+
+    color:#07131e;
+
+    background:#32d1f5;
+
+    padding:10px 16px;
+
+    border-radius:7px;
+
+    font-weight:bold;
+
+    text-decoration:none;
+
+    white-space:nowrap;
+
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.container{
+
+    width:92%;
+
+    max-width:1000px;
+
+    margin:auto;
+
+}
+
+main{
+
+    padding:45px 0 70px;
+
+}
+
+.page-intro{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.page-intro h2{
+
+    font-size:30px;
+
+    margin-bottom:7px;
+
+}
+
+.page-intro p{
+
+    color:#667085;
+
+}
+
+
+/* =========================================
+   CHAPTER LIST
+========================================= */
+
+.chapters{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:15px;
+
+}
+
+.chapter{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:white;
+
+    border:1px solid #e4e7ec;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    text-decoration:none;
+
+    color:#172033;
+
+    transition:.25s;
+
+}
+
+.chapter:hover{
+
+    border-color:#32d1f5;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(16,24,40,.08);
+
+}
+
+.chapter-number{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:11px;
+
+    background:#102a43;
+
+    color:#32d1f5;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:bold;
+
+    flex-shrink:0;
+
+}
+
+.chapter-name{
+
+    flex:1;
+
+}
+
+.chapter-name strong{
+
+    display:block;
+
+    font-size:16px;
+
+}
+
+.chapter-name small{
+
+    color:#7b8798;
+
+    font-size:12px;
+
+}
+
+.arrow{
+
+    font-size:20px;
+
+    color:#7b8798;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:700px){
+
+    .header-inner{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .chapters{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .back{
+
+        align-self:flex-start;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+<div class="header-inner">
+
+    <div>
+
+        <h1 id="pageTitle">
+            Physics
+            <span>Chapters</span>
+        </h1>
+
+        <p id="pageSubtitle">
+            Physics with Anand Gothi
+        </p>
+
+    </div>
+
+
+    <a
+        href="index.html"
+        class="back"
+    >
+        ← Home
+    </a>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main>
+
+<div class="container">
+
+
+    <div class="page-intro">
+
+        <h2 id="heading">
+            Chapter-wise Physics
+        </h2>
+
+        <p>
+            Select a chapter to continue your preparation.
+        </p>
+
+    </div>
+
+
+    <div
+        class="chapters"
+        id="chapters"
+    ></div>
+
+
+</div>
+
+</main>
+
+
+
+<script>
+
+
+/* =========================================
+   CLASS 11 CHAPTERS
+========================================= */
+
+const class11 = [
+
+"Units and Measurements",
+
+"Motion in a Straight Line",
+
+"Motion in a Plane",
+
+"Laws of Motion",
+
+"Work, Energy and Power",
+
+"System of Particles and Rotational Motion",
+
+"Gravitation",
+
+"Mechanical Properties of Solids",
+
+"Mechanical Properties of Fluids",
+
+"Thermal Properties of Matter",
+
+"Thermodynamics",
+
+"Kinetic Theory",
+
+"Oscillations",
+
+"Waves"
+
+];
+
+
+
+/* =========================================
+   CLASS 12 CHAPTERS
+========================================= */
+
+const class12 = [
+
+"Electric Charges and Fields",
+
+"Electrostatic Potential and Capacitance",
+
+"Current Electricity",
+
+"Moving Charges and Magnetism",
+
+"Magnetism and Matter",
+
+"Electromagnetic Induction",
+
+"Alternating Current",
+
+"Electromagnetic Waves",
+
+"Ray Optics and Optical Instruments",
+
+"Wave Optics",
+
+"Dual Nature of Radiation and Matter",
+
+"Atoms",
+
+"Nuclei",
+
+"Semiconductor Electronics"
+
+];
+
+
+
+/* =========================================
+   READ URL
+========================================= */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const selectedClass =
+    params.get("class") || "12";
+
+
+const selectedCategory =
+    params.get("category") || "notes";
+
+
+
+/* =========================================
+   CATEGORY NAMES
+========================================= */
+
+const categoryNames = {
+
+    "notes":"Notes",
+
+    "mp-board":"MP Board",
+
+    "cbse":"CBSE",
+
+    "neet":"NEET",
+
+    "jee":"JEE"
+
+};
+
+
+
+const categoryDescriptions = {
+
+    "notes":
+        "Concept-based Physics study material",
+
+    "mp-board":
+        "MP Board examination preparation",
+
+    "cbse":
+        "CBSE Physics preparation",
+
+    "neet":
+        "NEET Physics preparation",
+
+    "jee":
+        "JEE Physics preparation"
+
+};
+
+
+
+/* =========================================
+   SELECT CHAPTERS
+========================================= */
+
+const chapters =
+    selectedClass === "11"
+        ? class11
+        : class12;
+
+
+
+const category =
+    categoryNames[selectedCategory]
+        || "Notes";
+
+
+
+/* =========================================
+   UPDATE PAGE TITLE
+========================================= */
+
+document.title =
+    `Class ${selectedClass} Physics - ${category}`;
+
+
+document.getElementById("pageTitle").innerHTML =
+
+    `Class ${selectedClass}
+     <span>${category}</span>`;
+
+
+document.getElementById("pageSubtitle").textContent =
+
+    "Physics with Anand Gothi";
+
+
+document.getElementById("heading").textContent =
+
+    `Class ${selectedClass} Physics
+     — ${category}`;
+
+
+
+/* =========================================
+   CREATE CHAPTERS
+========================================= */
+
+const chapterContainer =
+    document.getElementById("chapters");
+
+
+chapters.forEach(
+    (chapter,index) => {
+
+        const number =
+            String(index + 1)
+                .padStart(2,"0");
+
+
+        const link =
+            `chapter.html?class=${selectedClass}` +
+            `&category=${selectedCategory}` +
+            `&chapter=${index + 1}`;
+
+
+        chapterContainer.innerHTML += `
+
+            <a
+                href="${link}"
+                class="chapter"
+            >
+
+                <div class="chapter-number">
+                    ${number}
+                </div>
+
+                <div class="chapter-name">
+
+                    <strong>
+                        Chapter ${number}
+                    </strong>
+
+                    <small>
+                        ${chapter}
+                    </small>
+
+                </div>
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </a>
+
+        `;
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
